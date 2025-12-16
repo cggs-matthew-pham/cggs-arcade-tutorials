@@ -2,7 +2,11 @@
     "name": "cggs-arcade-tutorials",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "controller": "*",
+        "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3"
+
     },
     "files": [
         "main.blocks",
