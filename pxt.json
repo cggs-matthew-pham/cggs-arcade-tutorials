@@ -8,7 +8,10 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "assets.json"
+        "assets.json",
+        "remember-player-name.md",
+        "story-quiz-score.md",
+        "numbers-math.md"
     ],
     "testFiles": [
         "test.ts"
