@@ -19,7 +19,7 @@ let name = ""
 ```
 
 ## Step 3: Check if Name is Already Saved
-From ``||logic:Logic||``, add an ``||logic:if then else||`` block. From ``||blockSettings:Settings||`` (under Advanced), drag ``||blockSettings:exists "name"||`` into the condition.
+From ``||logic:Logic||``, add an ``||logic:if then else||`` block. From ``||blockSettings:Settings||`` (under Advanced), drag ``||blockSettings:setting with "name" exists||`` into the condition.
 ```blocks
 let name = ""
 if (blockSettings.exists("name")) {
