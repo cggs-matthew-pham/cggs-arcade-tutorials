@@ -10,7 +10,7 @@ info.setScore(0)
 ```
 
 ## Step 2: Create a Math Function
-From ``||functions:Functions||`` (under Advanced), click "Make a Function". Name it ``||functions:calculateNumberOfHungryStudents||`` and click Done.
+From ``||functions:Functions||`` (under Advanced), click "Make a Function". Name it exactly **calculateNumberOfHungryStudents** (or create your own name) and click Done.
 ```blocks
 function calculateNumberOfHungryStudents () {
     
@@ -25,15 +25,17 @@ calculateNumberOfHungryStudents()
 ```
 
 ## Step 4: Show an Intro Message
-From ``||game:Game||``, drag ``||game:show long text||`` into your function to explain the concept.
+From ``||game:Game||``, drag ``||game:show long text||`` into your function. Type exactly: **"1 in 9 people don't have enough to eat."** (or create your own fact).
 ```blocks
 function calculateNumberOfHungryStudents () {
     game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
 }
 ```
 
-## Step 5: Explain the Math
-Add two more ``||game:show long text||`` blocks to explain the calculation and give a hint.
+## Step 5: Explain the Math Problem
+Add two more ``||game:show long text||`` blocks. Type these exactly (or create your own):
+- **"How many hungry students would there be if 1 in 9 didn't have food?"**
+- **"HINT: Divide the number by 9 and round down."**
 ```blocks
 function calculateNumberOfHungryStudents () {
     game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
@@ -43,7 +45,7 @@ function calculateNumberOfHungryStudents () {
 ```
 
 ## Step 6: Ask for Number of Students
-From ``||game:Game||``, drag ``||game:ask for number||``. Create a variable ``||variables:numStudents||`` to store the answer.
+From ``||game:Game||``, drag ``||game:ask for number||``. Create a variable ``||variables:numStudents||`` to store the answer. Type the prompt exactly: **"How many students are there in this class?"** (or create your own). Set the default number to **2**.
 ```blocks
 function calculateNumberOfHungryStudents () {
     game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
@@ -54,7 +56,7 @@ function calculateNumberOfHungryStudents () {
 ```
 
 ## Step 7: Ask for Player's Answer
-Add another ``||game:ask for number||`` and store it in a new variable ``||variables:playerAnswer||``.
+Add another ``||game:ask for number||`` and store it in a new variable ``||variables:playerAnswer||``. Type the prompt exactly: **"Now divide by 9 and round down."** (or create your own). Set the default to **1**.
 ```blocks
 function calculateNumberOfHungryStudents () {
     game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
@@ -66,7 +68,7 @@ function calculateNumberOfHungryStudents () {
 ```
 
 ## Step 8: Calculate the Correct Answer
-From ``||math:Math||`` (under Advanced), use ``||math:Math.floor||`` to divide ``||variables:numStudents||`` by 9 and round down. Store it in ``||variables:numHungryStudents||``.
+From ``||math:Math||`` (under Advanced), use ``||math:Math.floor||`` to divide ``||variables:numStudents||`` by **9** and round down. Store it in a new variable ``||variables:numHungryStudents||``.
 ```blocks
 function calculateNumberOfHungryStudents () {
     game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
@@ -97,8 +99,28 @@ function calculateNumberOfHungryStudents () {
 }
 ```
 
-## Step 10: Add Feedback and Update Score
-In the ``||logic:if||`` section, add ``||info:change score by 1||`` and a success message. In the ``||logic:else||`` section, show the correct answer. Use ``||text:join||`` from ``||text:Text||`` to combine text and numbers.
+## Step 10: Add Feedback for Correct Answer
+In the ``||logic:if||`` section, add ``||info:change score by 1||`` from ``||info:Info||``. Then add ``||game:show long text||``. Use ``||text:join||`` from ``||text:Text||`` (under Advanced) to combine: **"Correct! There would be "** + ``||variables:numHungryStudents||`` + **" hungry students in this class!"** (or create your own message).
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+    let numStudents = game.askForNumber("How many students are there in this class?", 2)
+    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
+    let numHungryStudents = Math.floor(numStudents / 9)
+    
+    if (playerAnswer == numHungryStudents) {
+        info.changeScoreBy(1)
+        game.showLongText("Correct! There would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
+    } else {
+        
+    }
+}
+```
+
+## Step 11: Add Feedback for Incorrect Answer
+In the ``||logic:else||`` section, add ``||game:show long text||``. Use ``||text:join||`` to combine: **"No, actually there would be "** + ``||variables:numHungryStudents||`` + **" hungry students in this class!"** (or create your own message).
 ```blocks
 function calculateNumberOfHungryStudents () {
     game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
@@ -117,8 +139,8 @@ function calculateNumberOfHungryStudents () {
 }
 ```
 
-## Step 11: Add a Reflection Question
-Add a final ``||game:show long text||`` block after the if/else to encourage reflection.
+## Step 12: Add a Reflection Question
+Add a final ``||game:show long text||`` block after the if/else. Type exactly: **"What can we do to make sure EVERYONE has enough to eat?"** (or create your own reflection question).
 ```blocks
 function calculateNumberOfHungryStudents () {
     game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
@@ -146,3 +168,4 @@ Excellent work! You've created an interactive math activity that makes players t
 - Add more math questions with different operations
 - Calculate percentages instead of fractions
 - Create a quiz with multiple calculation questions
+- Customize all text to match your own topic
