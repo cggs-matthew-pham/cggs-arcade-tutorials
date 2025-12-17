@@ -29,7 +29,7 @@ welcomeToOzHarvest()
 ```
 
 ## Step 4: Add the First Story Text
-From ``||game:Game||``, drag ``||game:show long text||`` into your function. Type "Welcome to OzHarvest!" and set the layout to Bottom.
+From ``||game:Game||``, drag ``||game:show long text||`` into your function. Type exactly: **"Welcome to OzHarvest!"** (or create your own message). Set the layout to **Bottom**.
 ```blocks
 function welcomeToOzHarvest () {
     game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
@@ -37,7 +37,9 @@ function welcomeToOzHarvest () {
 ```
 
 ## Step 5: Add More Story Text
-Duplicate the ``||game:show long text||`` block (right-click → Duplicate) and update the text to create a short intro sequence.
+Duplicate the ``||game:show long text||`` block twice (right-click → Duplicate). Type these messages exactly (or create your own):
+- **"I am here to tell you about FEAST."**
+- **"Food Sustainability and Education Training."**
 ```blocks
 function welcomeToOzHarvest () {
     game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
@@ -47,7 +49,22 @@ function welcomeToOzHarvest () {
 ```
 
 ## Step 6: Add the Quiz Question
-Add another ``||game:show long text||`` block with your question. Then from ``||story:Story||``, drag ``||story:show player choices||`` and add four answer options.
+Add another ``||game:show long text||`` block. Type exactly: **"How many uneaten sandwiches do Australian students throw away each year?"** (or create your own question).
+```blocks
+function welcomeToOzHarvest () {
+    game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
+    game.showLongText("I am here to tell you about FEAST.", DialogLayout.Bottom)
+    game.showLongText("Food Sustainability and Education Training.", DialogLayout.Bottom)
+    game.showLongText("How many uneaten sandwiches do Australian students throw away each year?", DialogLayout.Bottom)
+}
+```
+
+## Step 7: Add Answer Choices
+From ``||story:Story||``, drag ``||story:show player choices||``. Type these four options exactly (or create your own):
+- **"0.5 million"**
+- **"1 million"**
+- **"2 million"**
+- **"5 million"**
 ```blocks
 function welcomeToOzHarvest () {
     game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
@@ -58,7 +75,7 @@ function welcomeToOzHarvest () {
 }
 ```
 
-## Step 7: Initialize Score
+## Step 8: Initialize Score
 From ``||info:Info||``, drag ``||info:set score to 0||`` into ``||loops:on start||`` before calling your function.
 ```blocks
 function welcomeToOzHarvest () {
@@ -73,8 +90,8 @@ info.setScore(0)
 welcomeToOzHarvest()
 ```
 
-## Step 8: Check the Player's Answer
-From ``||logic:Logic||``, add an ``||logic:if then else||`` block after the choices. From ``||story:Story||``, drag ``||story:check last answer||`` into the condition and type the correct answer exactly as it appears in the choices.
+## Step 9: Check the Player's Answer
+From ``||logic:Logic||``, add an ``||logic:if then else||`` block after the choices. From ``||story:Story||``, drag ``||story:check last answer||`` into the condition. Type the correct answer exactly: **"2 million"** (must match your choice exactly, or use your own correct answer).
 ```blocks
 function welcomeToOzHarvest () {
     game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
@@ -90,8 +107,26 @@ function welcomeToOzHarvest () {
 }
 ```
 
-## Step 9: Add Feedback and Update Score
-In the ``||logic:if||`` section, add ``||info:change score by 1||`` and ``||game:show long text||`` with "That's correct!". In the ``||logic:else||`` section, add ``||game:show long text||`` with the correct answer.
+## Step 10: Add Feedback for Correct Answer
+In the ``||logic:if||`` section, add ``||info:change score by 1||`` from ``||info:Info||``. Then add ``||game:show long text||`` and type exactly: **"That's correct!"** (or create your own message).
+```blocks
+function welcomeToOzHarvest () {
+    game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
+    game.showLongText("I am here to tell you about FEAST.", DialogLayout.Bottom)
+    game.showLongText("Food Sustainability and Education Training.", DialogLayout.Bottom)
+    game.showLongText("How many uneaten sandwiches do Australian students throw away each year?", DialogLayout.Bottom)
+    story.showPlayerChoices("0.5 million", "1 million", "2 million", "5 million")
+    if (story.checkLastAnswer("2 million")) {
+        info.changeScoreBy(1)
+        game.showLongText("That's correct!", DialogLayout.Bottom)
+    } else {
+        
+    }
+}
+```
+
+## Step 11: Add Feedback for Incorrect Answer
+In the ``||logic:else||`` section, add ``||game:show long text||`` and type exactly: **"No, it's actually 2 million!"** (or create your own message with the correct answer).
 ```blocks
 function welcomeToOzHarvest () {
     game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
@@ -108,8 +143,10 @@ function welcomeToOzHarvest () {
 }
 ```
 
-## Step 10: Add Wrap-Up Story Text
-Add a couple more ``||game:show long text||`` blocks after the if/else to extend the learning with additional facts.
+## Step 12: Add Wrap-Up Facts
+Add two more ``||game:show long text||`` blocks after the if/else. Type these messages exactly (or create your own):
+- **"In Australia we waste 7.6 million tonnes of food every year."**
+- **"This costs over $36.6 billion dollars!"**
 ```blocks
 function welcomeToOzHarvest () {
     game.showLongText("Welcome to OzHarvest!", DialogLayout.Bottom)
@@ -135,3 +172,4 @@ Great work! You've created an interactive story with quiz questions and score tr
 - Add multiple quiz questions
 - Create different story branches based on answers
 - Show a final score summary at the end
+- Customize all text to match your own topic
