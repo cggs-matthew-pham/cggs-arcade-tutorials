@@ -1,331 +1,148 @@
-### @title Numbers and Math
-
-### @description Use ask for number, calculate an answer using division and rounding down, then check the player’s answer and update score.
-
-### @preferredEditor blocks
-
-### @explicitHints true
-
 # Numbers and Math
 
-## Step 1: Set up score (on start)
+## Introduction @showdialog
+Learn to use numbers, math operations, and check player answers in your game!
 
-We will use score so correct answers can earn a point.
-
-  
-
-- Open Info
-
-- Drag set score to 0 into the workspace
-
-- Leave this outside any function
-
-  
-
+## Step 1: Initialize Score
+From ``||info:Info||``, drag ``||info:set score to 0||`` into ``||loops:on start||``.
 ```blocks
-
 info.setScore(0)
-
 ```
 
-  
-
-## Step 2: Create a function for the maths section
-
-We will keep all the maths and checking logic inside a function.
-
-  
-
-- Open Advanced → Functions
-
-- Click Make a Function
-
-- Name it calculateNumberOfHungryStudents
-
-The function will not run unless we call it.
-
-  
-
-- Drag **call calculateNumberOfHungryStudents** into the workspace
-
-- Place it inside **on start**
-
+## Step 2: Create a Math Function
+From ``||functions:Functions||`` (under Advanced), click "Make a Function". Name it ``||functions:calculateNumberOfHungryStudents||`` and click Done.
 ```blocks
-
 function calculateNumberOfHungryStudents () {
-
-  
-
+    
 }
-
-calculateNumberOfHungryStudents()
-
 ```
 
-  
-
-## Step 3: Show an intro message
-
-Explain the idea before asking questions.
-
-  
-
+## Step 3: Call the Function
+From ``||functions:Functions||``, drag ``||functions:call calculateNumberOfHungryStudents||`` into ``||loops:on start||`` after setting the score.
 ```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-}
-
-```
-
-  
-
-## Step 4: Explain the maths
-
-Tell the player what calculation they need to do.
-
-  
-
-```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
-
-    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
-
-}
-
-```
-
-  
-
-## Step 5: Ask for the number of students
-
-Collect a number from the player.
-
-  
-
-```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
-
-    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
-
-    let numStudents = game.askForNumber("How many students are there in this class?", 2)
-
-}
-
-```
-
-  
-
-## Step 6: Ask the player for their answer
-
-Ask the player to enter their calculated result.
-
-  
-
-```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
-
-    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
-
-    let numStudents = game.askForNumber("How many students are there in this class?", 2)
-
-    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
-
-}
-
-```
-
-  
-
-## Step 7: Calculate the correct answer
-
-The program now calculates the real answer.
-
-  
-
-```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
-
-    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
-
-    let numStudents = game.askForNumber("How many students are there in this class?", 2)
-
-    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
-
-    let numHungryStudents = Math.floor(numStudents / 9)
-
-}
-
-```
-
-  
-
-## Step 8: Check if the answer is correct
-
-Use an if / else block to compare the numbers.
-
-  
-
-```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
-
-    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
-
-    let numStudents = game.askForNumber("How many students are there in this class?", 2)
-
-    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
-
-    let numHungryStudents = Math.floor(numStudents / 9)
-
-  
-
-    if (playerAnswer == numHungryStudents) {
-
-  
-
-    } else {
-
-  
-
-    }
-
-}
-
-```
-
-  
-
-## Step 9: Add feedback and update score
-
-Fill in the if / else blocks.
-
-  
-
-```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
-
-    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
-
-    let numStudents = game.askForNumber("How many students are there in this class?", 2)
-
-    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
-
-    let numHungryStudents = Math.floor(numStudents / 9)
-
-  
-
-    if (playerAnswer == numHungryStudents) {
-
-        info.changeScoreBy(1)
-
-        game.showLongText("Correct! There would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
-
-    } else {
-
-        game.showLongText("No, actually there would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
-
-    }
-
-}
-
-```
-
-  
-
-## Step 10: Wrap-up message (optional)
-
-End with a reflective question.
-
-  
-
-```blocks
-
-function calculateNumberOfHungryStudents () {
-
-    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
-
-    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
-
-    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
-
-    let numStudents = game.askForNumber("How many students are there in this class?", 2)
-
-    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
-
-    let numHungryStudents = Math.floor(numStudents / 9)
-
-  
-
-    if (playerAnswer == numHungryStudents) {
-
-        info.changeScoreBy(1)
-
-        game.showLongText("Correct! There would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
-
-    } else {
-
-        game.showLongText("No, actually there would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
-
-    }
-
-  
-
-    game.showLongText("What can we do to make sure EVERYONE has enough to eat?", DialogLayout.Bottom)
-
-}
-
-```
-
-  
-
-## Step 11: Call the function
-
-The function will not run unless we call it.
-
-  
-
-```blocks
-
 info.setScore(0)
-
 calculateNumberOfHungryStudents()
-
 ```
 
-  
+## Step 4: Show an Intro Message
+From ``||game:Game||``, drag ``||game:show long text||`` into your function to explain the concept.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+}
+```
 
-## Step 12: Test your program
+## Step 5: Explain the Math
+Add two more ``||game:show long text||`` blocks to explain the calculation and give a hint.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+}
+```
 
-Run the game and check that everything works.
+## Step 6: Ask for Number of Students
+From ``||game:Game||``, drag ``||game:ask for number||``. Create a variable ``||variables:numStudents||`` to store the answer.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+    let numStudents = game.askForNumber("How many students are there in this class?", 2)
+}
+```
+
+## Step 7: Ask for Player's Answer
+Add another ``||game:ask for number||`` and store it in a new variable ``||variables:playerAnswer||``.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+    let numStudents = game.askForNumber("How many students are there in this class?", 2)
+    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
+}
+```
+
+## Step 8: Calculate the Correct Answer
+From ``||math:Math||`` (under Advanced), use ``||math:Math.floor||`` to divide ``||variables:numStudents||`` by 9 and round down. Store it in ``||variables:numHungryStudents||``.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+    let numStudents = game.askForNumber("How many students are there in this class?", 2)
+    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
+    let numHungryStudents = Math.floor(numStudents / 9)
+}
+```
+
+## Step 9: Check if Answer is Correct
+From ``||logic:Logic||``, add an ``||logic:if then else||`` block. Use a comparison (``||logic:=||``) to check if ``||variables:playerAnswer||`` equals ``||variables:numHungryStudents||``.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+    let numStudents = game.askForNumber("How many students are there in this class?", 2)
+    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
+    let numHungryStudents = Math.floor(numStudents / 9)
+    
+    if (playerAnswer == numHungryStudents) {
+        
+    } else {
+        
+    }
+}
+```
+
+## Step 10: Add Feedback and Update Score
+In the ``||logic:if||`` section, add ``||info:change score by 1||`` and a success message. In the ``||logic:else||`` section, show the correct answer. Use ``||text:join||`` from ``||text:Text||`` to combine text and numbers.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+    let numStudents = game.askForNumber("How many students are there in this class?", 2)
+    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
+    let numHungryStudents = Math.floor(numStudents / 9)
+    
+    if (playerAnswer == numHungryStudents) {
+        info.changeScoreBy(1)
+        game.showLongText("Correct! There would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
+    } else {
+        game.showLongText("No, actually there would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
+    }
+}
+```
+
+## Step 11: Add a Reflection Question
+Add a final ``||game:show long text||`` block after the if/else to encourage reflection.
+```blocks
+function calculateNumberOfHungryStudents () {
+    game.showLongText("1 in 9 people don't have enough to eat.", DialogLayout.Bottom)
+    game.showLongText("How many hungry students would there be if 1 in 9 didn't have food?", DialogLayout.Bottom)
+    game.showLongText("HINT: Divide the number by 9 and round down.", DialogLayout.Bottom)
+    let numStudents = game.askForNumber("How many students are there in this class?", 2)
+    let playerAnswer = game.askForNumber("Now divide by 9 and round down.", 1)
+    let numHungryStudents = Math.floor(numStudents / 9)
+    
+    if (playerAnswer == numHungryStudents) {
+        info.changeScoreBy(1)
+        game.showLongText("Correct! There would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
+    } else {
+        game.showLongText("No, actually there would be " + numHungryStudents + " hungry students in this class!", DialogLayout.Bottom)
+    }
+    
+    game.showLongText("What can we do to make sure EVERYONE has enough to eat?", DialogLayout.Bottom)
+}
+```
+
+## Complete! @showdialog
+Excellent work! You've created an interactive math activity that makes players think about real-world problems using division and rounding.
+
+**Extension Ideas:**
+- Add more math questions with different operations
+- Calculate percentages instead of fractions
+- Create a quiz with multiple calculation questions

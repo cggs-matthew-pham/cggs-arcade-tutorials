@@ -1,325 +1,114 @@
-### @title Remember the Player's Name
-
-### @description Ask for the player’s name once, save it using settings, and greet them every time.
-
-### @preferredEditor blocks
-
-### @explicitHints true
-
-  
 # Remember the Player's Name
-## Step 1: Add the Settings extension
 
+## Introduction @showdialog
+Learn how to save and remember the player's name between game sessions using the Settings extension!
+
+## Step 1: Add the Settings Extension
 We need the Settings extension so the game can remember data between runs.
 
-  
+- Click **Extensions**
+- Search for **settings**
+- Add the **settings-blocks** extension
 
-- Click **Extensions**  
+**NOTE:** For this tutorial, the **settings-blocks** extension has already been included.
 
-- Search for **settings**  
-
-- Add the **settings-blocks** extension  
-
-  
-
-**NOTE** that for this tutorial, the **settings-block** extension has already been included
-
-  
-
-## Step 2: Create a variable for the player’s name
-
-Create a variable called name and set it to an empty string.
-
-  
-
-- Open Variables → Make a variable → call it name
-
-- Drag set name to into the workspace
-
-- Open Advanced → Text
-
-- Drag the empty text block "" into the value slot
-
-  
-
+## Step 2: Create a Name Variable
+From ``||variables:Variables||``, click "Make a Variable" and name it ``||variables:name||``. Drag ``||variables:set name to||`` into ``||loops:on start||``. From ``||text:Text||`` (under Advanced), add an empty text block ``||text:""||``.
 ```blocks
-
 let name = ""
-
 ```
 
-  
-
-## Step 3: Check if a name is already saved
-
-Use an if / else block to check if the setting "name" exists.
-
-  
-
-- Open Logic
-
-- Add an if / else block
-
-- Open Advanced → Settings
-
-- Use exists "name" as the condition
-
-  
-
-In the next steps, we will:
-
-- Read the name from settings if it exists
-
-- Ask the player for their name if it does not
-
-  
-
+## Step 3: Check if Name is Already Saved
+From ``||logic:Logic||``, add an ``||logic:if then else||`` block. From ``||blockSettings:Settings||`` (under Advanced), drag ``||blockSettings:exists "name"||`` into the condition.
 ```blocks
-
 let name = ""
-
 if (blockSettings.exists("name")) {
-
-  
-
+    
 } else {
-
-  
-
+    
 }
-
 ```
 
-  
-
-## Step 4: Read the saved name
-
-Inside the if block, read the saved name from settings.
-
-  
-
+## Step 4: Read the Saved Name
+From ``||blockSettings:Settings||``, drag ``||blockSettings:read string "name"||`` into the ``||logic:if||`` section and assign it to ``||variables:name||``.
 ```blocks
-
 let name = ""
-
-name = ""
-
 if (blockSettings.exists("name")) {
-
-    name = blockSettings.readString("name")
-
+    name = blockSettings.readString("name")
 } else {
-
-  
-
+    
 }
-
 ```
 
-  
-
-## Step 5: Ask for the name and save it
-
-Inside the else block, ask the player for their name and save it.
-
-  
-
+## Step 5: Ask for Name and Save It
+In the ``||logic:else||`` section, use ``||game:ask for string||`` from ``||game:Game||`` and save the result. Then use ``||blockSettings:write string||`` from ``||blockSettings:Settings||`` to save it.
 ```blocks
-
 let name = ""
-
-name = ""
-
 if (blockSettings.exists("name")) {
-
-    name = blockSettings.readString("name")
-
+    name = blockSettings.readString("name")
 } else {
-
-    name = game.askForString("What is your name?")
-
-    blockSettings.writeString("name", name)
-
+    name = game.askForString("What is your name?")
+    blockSettings.writeString("name", name)
 }
-
 ```
 
-  
-
-## Step 6: Greet the player
-
-After the if block, display a greeting using the name variable.
-
-  
-
+## Step 6: Greet the Player
+After the if block, add ``||game:splash||`` from ``||game:Game||``. Use ``||text:join||`` from ``||text:Text||`` to combine "Hello, ", ``||variables:name||``, and "!".
 ```blocks
-
 let name = ""
-
-name = ""
-
 if (blockSettings.exists("name")) {
-
-    name = blockSettings.readString("name")
-
+    name = blockSettings.readString("name")
 } else {
-
-    name = game.askForString("What is your name?")
-
-    blockSettings.writeString("name", name)
-
+    name = game.askForString("What is your name?")
+    blockSettings.writeString("name", name)
 }
-
 game.splash("Hello, " + name + "!")
-
 ```
 
-  
+## Step 7: Test the Game
+Run your game! The first time it asks for your name. Every time after, it remembers automatically.
 
-## Step 7: Test the game
-
-The first time the game runs, it asks for the player’s name.  
-
-Every time after that, the name is remembered automatically.
-
-  
-
-## Step 8: Create a function for the name code
-
-Now we will put the name and settings logic into a function so the main program stays clean.
-
-  
-
-- Open **Advanced → Functions**
-
-- Click **Make a Function**
-
-- Name it `getAndDisplayPlayerName`
-
-- Click **Done**
-
-  
-
-You should now see a new block called:
-
-- **function getAndDisplayPlayerName do**
-
-  
-
+## Step 8: Create a Function
+From ``||functions:Functions||`` (under Advanced), click "Make a Function". Name it ``||functions:getAndDisplayPlayerName||`` and click Done.
 ```blocks
-
 function getAndDisplayPlayerName () {
-
-  
-
+    
 }
-
 ```
 
-  
-
-## Step 9: Move the name logic into the function
-
-Move the code from Steps 2–6 into the function.
-
-  
-
-- Drag the **if / else** block into the function
-
-- Drag the **game.splash("Hello, " + name + "!")** block into the function
-
-- Leave **let name = ""** outside the function
-
-  
-
+## Step 9: Move Code into Function
+Drag your if/else block and splash message into the function. Keep ``||variables:let name = ""||`` at the top of your workspace (outside the function).
 ```blocks
-
-  
-
 function getAndDisplayPlayerName () {
-
-    let name = ""
-
-    name = ""
-
-    if (blockSettings.exists("name")) {
-
-        name = blockSettings.readString("name")
-
-    } else {
-
-        name = game.askForString("What is your name?")
-
-        blockSettings.writeString("name", name)
-
-    }
-
-    game.splash("Hello, " + name + "!")
-
+    let name = ""
+    if (blockSettings.exists("name")) {
+        name = blockSettings.readString("name")
+    } else {
+        name = game.askForString("What is your name?")
+        blockSettings.writeString("name", name)
+    }
+    game.splash("Hello, " + name + "!")
 }
-
 ```
 
-  
-
-## Step 10: Call the function
-
-The function will not run unless we call it.
-
-  
-
-- Drag **call getAndDisplayPlayerName** into the workspace
-
-- Place it inside **on start**
-
-  
-
+## Step 10: Call the Function
+From ``||functions:Functions||``, drag ``||functions:call getAndDisplayPlayerName||`` into ``||loops:on start||``.
 ```blocks
-
 function getAndDisplayPlayerName () {
-
-    let name = ""
-
-    name = ""
-
-    if (blockSettings.exists("name")) {
-
-        name = blockSettings.readString("name")
-
-    } else {
-
-        name = game.askForString("What is your name?")
-
-        blockSettings.writeString("name", name)
-
-    }
-
-    game.splash("Hello, " + name + "!")
-
+    let name = ""
+    if (blockSettings.exists("name")) {
+        name = blockSettings.readString("name")
+    } else {
+        name = game.askForString("What is your name?")
+        blockSettings.writeString("name", name)
+    }
+    game.splash("Hello, " + name + "!")
 }
-
 getAndDisplayPlayerName()
-
 ```
 
-  
-
-## Step 11: Test again
-
-Test the game to make sure it still works.
-
-  
-
-- First run: the game should ask for your name
-
-- Next runs: the game should remember your name automatically
-
-  
-  
-
-  
+## Complete! @showdialog
+Great work! Your game now remembers the player's name between sessions. This is useful for creating personalized experiences!
 ```package
-
 settings-blocks=github:microsoft/pxt-settings-blocks
-
 ```
