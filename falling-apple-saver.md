@@ -1,4 +1,4 @@
-# Apple Saver
+# Falling Apple Saver
 
 ## Part 1 Introduction @showdialog
 Create a game where you catch falling apples to prevent food waste!

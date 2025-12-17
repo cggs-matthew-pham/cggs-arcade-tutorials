@@ -16,7 +16,8 @@
         "remember-player-name.md",
         "story-quiz-score.md",
         "numbers-math.md",
-        "apple-saver.md"
+        "falling-apple-saver.md",
+        "kitchen-apple-saver.md"
     ],
     "testFiles": [
         "test.ts"
