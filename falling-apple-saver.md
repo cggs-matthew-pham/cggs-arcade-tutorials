@@ -35,8 +35,10 @@ let ground = sprites.create(assets.image`Ground`, SpriteKind.Player)
 ground.y = 112
 ```
 
-## Step 6: Create New Sprite Kind
-At the very top of your workspace, add a ``||sprites:SpriteKind||`` block (found under Advanced). Inside it, create a new kind called ``||sprites:Ground||``. Then go back to your ground sprite and change its kind from Player to Ground.
+## Step 6: Create a Special Ground Type
+We need to make the ground different from the player so we can detect when apples hit the ground later. At the top of your screen, find ``||sprites:SpriteKind||`` (it's hidden in Sprites, click Advanced to see it). Drag it out, then type ``||sprites:Ground||`` where it says "create()".
+
+Now go back to your ground sprite and click where it says ``||sprites:Player||``. Change it to ``||sprites:Ground||``.
 ```blocks
 namespace SpriteKind {
     export const Ground = SpriteKind.create()
@@ -45,8 +47,12 @@ let ground = sprites.create(assets.image`Ground`, SpriteKind.Ground)
 ground.y = 112
 ```
 
-## Step 7: Create the Player
-From ``||sprites:Sprites||``, drag another ``||variables:set mySprite to||`` block. Rename it to ``||variables:myPlayer||``. Click the grey box and choose the Player image.
+## Step 7: Create Your Player Character
+Now let's make the character you'll control! From ``||sprites:Sprites||``, drag ``||variables:set mySprite to||`` into ``||loops:on start||`` below your ground sprite. 
+
+Click on the word ``||variables:mySprite||`` and type ``||variables:myPlayer||`` to rename it. This helps us remember what this sprite is for when we use it later in our code.
+
+Then click the grey box and choose the Player image.
 ```blocks
 let myPlayer: Sprite = null
 myPlayer = sprites.create(assets.image`Player`, SpriteKind.Player)
