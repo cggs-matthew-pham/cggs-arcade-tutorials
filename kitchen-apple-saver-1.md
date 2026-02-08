@@ -5,9 +5,9 @@ Stop food waste by collecting apples before time runs out! In Australia, 7.6 mil
 
 ## Step 1: Set the Background
 From ``||scene:Scene||``, drag ``||scene:set background image||`` into ``||loops:on start||``. Follow these steps to display kitchen tiles as the background image:
-- Copy the code from this text file (Ctrl+A + Ctrl+C OR Cmd+A + Cmd+C)
-  https://raw.githubusercontent.com/cggs-matthew-pham/cggs-arcade-tutorials/master/kitchen-background.txt
-- Click on the grey box
+- Open the Agora file with the kitchen background code (kitchen-background.txt)
+- Copy the code (Ctrl+A + Ctrl+C OR Cmd+A + Cmd+C)
+- Click on the grey box in MakeCode
 - Paste the code you copied into the sprite editor
   
 ```blocks
