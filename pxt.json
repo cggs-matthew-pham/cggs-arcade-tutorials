@@ -17,7 +17,8 @@
         "story-quiz-score.md",
         "numbers-math.md",
         "falling-apple-saver.md",
-        "kitchen-apple-saver.md"
+        "kitchen-apple-saver-1.md",
+        "kitchen-apple-saver-2.md"
     ],
     "testFiles": [
         "test.ts"
