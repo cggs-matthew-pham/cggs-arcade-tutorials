@@ -4,11 +4,17 @@
 Stop food waste by collecting apples before time runs out! In Australia, 7.6 million tonnes of food is wasted each year. Every apple saved counts!
 
 ## Step 1: Set the Background
-From ``||scene:Scene||``, drag ``||scene:set background image||`` into ``||loops:on start||``. Click the grey box and draw a kitchen or garden background.
+From ``||scene:Scene||``, drag ``||scene:set background image||`` into ``||loops:on start||``. Follow these steps to display kitchen tiles as the background image:
+- Copy the code from this text file (Ctrl+A + Ctrl+C OR Cmd+A + Cmd+C)
+  https://raw.githubusercontent.com/cggs-matthew-pham/cggs-arcade-tutorials/master/kitchen-background.txt
+- Click on the grey box
+- Paste the code you copied into the sprite editor
+  
 ```blocks
 scene.setBackgroundImage(img`
     `)
 ```
+
 
 ## Step 2: Create the Player
 From ``||sprites:Sprites||``, drag ``||variables:set mySprite to||`` and rename it to ``||variables:mySprite||``. Click the grey box and draw your character (or use the default person sprite).
