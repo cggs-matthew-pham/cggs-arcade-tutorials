@@ -14,8 +14,8 @@ radio
 
 ```template
 let channel = ""
-// CHANGE THIS: the SAME name as your robot
-channel = "roger"
+// CHANGE THIS: the SAME icon name as your robot, e.g. duck
+channel = "duck"
 // CHANGE THIS: the SAME group number as your robot
 radio.setGroup(101)
 scene.setBackgroundColor(15)
@@ -31,7 +31,7 @@ An Arcade controller has a D-pad, **A**, **B** and **Menu**. Today you'll use it
 ## Step 1: Match Your Robot
 Your template has two lines to change. Both must **match your robot exactly**:
 - ``||radio:radio set group||`` — your team's group number
-- ``||variables:set channel to||`` — your robot's name
+- ``||variables:set channel to||`` — your robot's icon name, e.g. **duck**
 
 Remember the protocol from Battle Bot 1:
 
@@ -45,7 +45,7 @@ Remember the protocol from Battle Bot 1:
 
 ```blocks
 let channel = ""
-channel = "roger"
+channel = "duck"
 radio.setGroup(101)
 scene.setBackgroundColor(15)
 ```
@@ -55,7 +55,7 @@ From ``||sprites:Sprites||``, drag ``||variables:set mySprite to sprite of kind 
 
 ```blocks
 let channel = ""
-channel = "roger"
+channel = "duck"
 radio.setGroup(101)
 scene.setBackgroundColor(15)
 let bot = sprites.create(img`

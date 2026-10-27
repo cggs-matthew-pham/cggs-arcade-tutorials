@@ -15,7 +15,7 @@ radio
 ```template
 let command = 0
 let channel = ""
-channel = "roger"
+channel = "duck"
 radio.setGroup(101)
 scene.setBackgroundColor(15)
 let bot = sprites.create(img`
