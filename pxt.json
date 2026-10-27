@@ -19,7 +19,9 @@
         "falling-apple-saver.md",
         "kitchen-apple-saver-1.md",
         "kitchen-apple-saver-2.md",
-        "battlebot-controller.md"
+        "battlebot-2-controller.md",
+        "battlebot-3-controller.md",
+        "battlebot-4-controller.md"
     ],
     "testFiles": [
         "test.ts"
