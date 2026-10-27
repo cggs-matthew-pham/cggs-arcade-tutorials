@@ -18,7 +18,8 @@
         "numbers-math.md",
         "falling-apple-saver.md",
         "kitchen-apple-saver-1.md",
-        "kitchen-apple-saver-2.md"
+        "kitchen-apple-saver-2.md",
+        "battlebot-controller.md"
     ],
     "testFiles": [
         "test.ts"
